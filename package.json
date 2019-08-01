@@ -13,7 +13,7 @@
     "react-transition-group": "^2.2.1",
     "styled-components": "^2.2.1"
   },
-  "hompeage": "https://aherooftime.github.io/moviedb2",
+  "hompeage": "https://aherooftime.github.io/lumdb",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
