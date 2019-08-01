@@ -4,17 +4,21 @@ import styled from 'styled-components';
 import Overdrive from 'react-overdrive';
 import { Poster } from './Movie';
 
-const POSTER_PATH = 'http://image.tmdb.org/t/p/w154';
-const BACKDROP_PATH = 'http://image.tmdb.org/t/p/w1280';
+const POSTER_PATH = 'https://image.tmdb.org/t/p/w154';
+const BACKDROP_PATH = 'https://image.tmdb.org/t/p/w1280';
 
 class MovieDetail extends Component {
   state = {
     movie: {},
-  }
+  };
 
   async componentDidMount() {
     try {
-      const res = await fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=65e043c24785898be00b4abc12fcdaae&language=en-US`);
+      const res = await fetch(
+        `https://api.themoviedb.org/3/movie/${
+          this.props.match.params.id
+        }?api_key=65e043c24785898be00b4abc12fcdaae&language=en-US`,
+      );
       const movie = await res.json();
       this.setState({
         movie,
@@ -31,7 +35,10 @@ class MovieDetail extends Component {
       <MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
         <MovieInfo>
           <Overdrive id={`${movie.id}`}>
-            <Poster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+            <Poster
+              src={`${POSTER_PATH}${movie.poster_path}`}
+              alt={movie.title}
+            />
           </Overdrive>
           <div>
             <h1>{movie.title}</h1>
